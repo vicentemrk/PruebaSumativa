@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gloria Eterna | Campeones de Majors CS:GO y CS2</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Variables de Color - Paleta "Acero Táctico" */
+        :root {
+            --color-fondo: #F5F5F1;
+            --color-acento: #4A4E69;
+            --color-texto: #22223B;
+            --color-hover: #2F3243;
+        }
+
+        /* Estilos Base */
+        body {
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--color-texto), var(--color-acento));
+            color: var(--color-fondo);
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 30px rgba(34, 34, 59, 0.15);
+            margin-bottom: 60px;
+        }
+
+        .hero-title {
+            font-weight: 900;
+            font-size: clamp(2rem, 5vw, 4rem);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Diseño de Tarjetas (Cards) */
+        .winner-card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden; /* Evita difuminado en bordes */
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .winner-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(74, 78, 105, 0.25);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .winner-card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--color-texto);
+            margin-bottom: 0.2rem;
+        }
+
+        .major-name {
+            font-size: 0.9rem;
+            color: var(--color-acento);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Botón Interactivo */
+        .btn-ver-final {
+            background-color: var(--color-acento);
+            color: var(--color-fondo);
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn-ver-final:hover {
+            background-color: var(--color-hover);
+            color: #ffffff;
+            box-shadow: 0 5px 15px rgba(47, 50, 67, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Gloria Eterna</h1>
+            <p class="hero-subtitle">El salón de la fama definitivo. Conoce a todos los equipos que han levantado el trofeo más prestigioso de la historia de Counter-Strike, desde 2013 hasta la era actual de CS2.</p>
+        </div>
+    </header>
+
+    <main class="container mb-5">
+        <div class="row g-4">
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Fnatic" class="card-img-top card-image" alt="Fnatic">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Fnatic</h5>
+                        <p class="major-name">DreamHack Winter 2013</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=DreamHack+Winter+2013+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Virtus.pro" class="card-img-top card-image" alt="Virtus.pro">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Virtus.pro</h5>
+                        <p class="major-name">EMS One Katowice 2014</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=EMS+One+Katowice+2014+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Ninjas+in+Pyjamas" class="card-img-top card-image" alt="Ninjas in Pyjamas">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Ninjas in Pyjamas</h5>
+                        <p class="major-name">ESL One Cologne 2014</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=ESL+One+Cologne+2014+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=LDLC" class="card-img-top card-image" alt="LDLC">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">LDLC</h5>
+                        <p class="major-name">DreamHack Winter 2014</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=DreamHack+Winter+2014+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Fnatic" class="card-img-top card-image" alt="Fnatic">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Fnatic</h5>
+                        <p class="major-name">ESL One Katowice 2015</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=ESL+One+Katowice+2015+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Fnatic" class="card-img-top card-image" alt="Fnatic">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Fnatic</h5>
+                        <p class="major-name">ESL One Cologne 2015</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=ESL+One+Cologne+2015+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Team+EnVyUs" class="card-img-top card-image" alt="Team EnVyUs">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Team EnVyUs</h5>
+                        <p class="major-name">DH Open Cluj-Napoca 2015</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=Cluj-Napoca+2015+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Luminosity" class="card-img-top card-image" alt="Luminosity Gaming">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Luminosity Gaming</h5>
+                        <p class="major-name">MLG Columbus 2016</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=MLG+Columbus+2016+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=SK+Gaming" class="card-img-top card-image" alt="SK Gaming">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">SK Gaming</h5>
+                        <p class="major-name">ESL One Cologne 2016</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=ESL+One+Cologne+2016+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Astralis" class="card-img-top card-image" alt="Astralis">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Astralis</h5>
+                        <p class="major-name">ELEAGUE Atlanta 2017</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=ELEAGUE+Atlanta+2017+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Gambit" class="card-img-top card-image" alt="Gambit Esports">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Gambit Esports</h5>
+                        <p class="major-name">PGL Major Kraków 2017</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=PGL+Major+Krakow+2017+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Cloud9" class="card-img-top card-image" alt="Cloud9">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Cloud9</h5>
+                        <p class="major-name">ELEAGUE Boston 2018</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=ELEAGUE+Boston+2018+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Astralis" class="card-img-top card-image" alt="Astralis">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Astralis</h5>
+                        <p class="major-name">FACEIT London 2018</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=FACEIT+London+2018+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Astralis" class="card-img-top card-image" alt="Astralis">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Astralis</h5>
+                        <p class="major-name">IEM Katowice 2019</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=IEM+Katowice+2019+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Astralis" class="card-img-top card-image" alt="Astralis">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Astralis</h5>
+                        <p class="major-name">StarLadder Berlin 2019</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=StarLadder+Berlin+2019+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=NAVI" class="card-img-top card-image" alt="Natus Vincere">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Natus Vincere</h5>
+                        <p class="major-name">PGL Major Stockholm 2021</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=PGL+Major+Stockholm+2021+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=FaZe+Clan" class="card-img-top card-image" alt="FaZe Clan">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">FaZe Clan</h5>
+                        <p class="major-name">PGL Major Antwerp 2022</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=PGL+Major+Antwerp+2022+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Outsiders" class="card-img-top card-image" alt="Outsiders">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Outsiders</h5>
+                        <p class="major-name">IEM Rio Major 2022</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=IEM+Rio+Major+2022+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Team+Vitality" class="card-img-top card-image" alt="Team Vitality">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Team Vitality</h5>
+                        <p class="major-name">BLAST.tv Paris Major 2023</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=BLAST+tv+Paris+Major+2023+CSGO+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=NAVI" class="card-img-top card-image" alt="Natus Vincere">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Natus Vincere</h5>
+                        <p class="major-name">PGL Major Copenhagen 2024</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=PGL+Major+Copenhagen+2024+CS2+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Team+Spirit" class="card-img-top card-image" alt="Team Spirit">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Team Spirit</h5>
+                        <p class="major-name">Perfect World Shanghai 2024</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=Perfect+World+Shanghai+2024+CS2+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Team+Vitality" class="card-img-top card-image" alt="Team Vitality">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Team Vitality</h5>
+                        <p class="major-name">BLAST.tv Austin Major 2025</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=BLAST+tv+Austin+Major+2025+CS2+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card winner-card d-flex flex-column h-100">
+                    <img src="https://placehold.co/600x400/4A4E69/F5F5F1?text=Team+Vitality" class="card-img-top card-image" alt="Team Vitality">
+                    <div class="card-body d-flex flex-column flex-grow-1">
+                        <h5 class="card-title">Team Vitality</h5>
+                        <p class="major-name">StarLadder Budapest Major 2025</p>
+                        <div class="mt-auto">
+                            <a href="https://www.youtube.com/results?search_query=StarLadder+Budapest+Major+2025+CS2+Grand+Final" target="_blank" class="btn-ver-final">Ver Gran Final</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
