@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganadores de Majors | CS:GO & CS2 | Historia del Counter-Strike</title>
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           VARIABLES CSS - PALETA ACERO TÁCTICO
+           ============================================ */
+        :root {
+            --color-fondo: #F5F5F1;
+            --color-acento: #4A4E69;
+            --color-texto: #22223B;
+            --color-hover: #2F3243;
+            --color-oro: #C9A227;
+            --color-plata: #A8A8A8;
+            --color-bronze: #CD7F32;
+            --fuente-titulos: 'Bebas Neue', sans-serif;
+            --fuente-cuerpo: 'Inter', sans-serif;
+            --transicion: all 0.3s ease;
+        }
+
+        /* ============================================
+           RESET Y ESTILOS BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           ANIMACIONES DE ENTRADA
+           ============================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        .animar-entrada {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .animar-escala {
+            opacity: 0;
+            animation: fadeInScale 0.5s ease forwards;
+        }
+
+        /* ============================================
+           SECCIÓN HERO - DISEÑO MONUMENTAL
+           ============================================ */
+        .hero {
+            min-block-size: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 1.5rem 4rem;
+            position: relative;
+            background: linear-gradient(135deg, var(--color-fondo) 0%, #E8E8E4 50%, var(--color-fondo) 100%);
+            overflow: hidden;
+        }
+
+        /* Patrón de fondo sutil */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(74, 78, 105, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(201, 162, 39, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Líneas decorativas geométricas */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            inline-size: 600px;
+            block-size: 600px;
+            border: 1px solid rgba(74, 78, 105, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-contenido {
+            position: relative;
+            z-index: 2;
+            max-inline-size: 900px;
+        }
+
+        .hero-etiqueta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--color-acento);
+            color: var(--color-fondo);
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+
+        .hero-titulo {
+            font-family: var(--fuente-titulos);
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: 0.02em;
+            color: var(--color-texto);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .hero-titulo span {
+            display: block;
+            color: var(--color-acento);
+        }
+
+        .hero-subtitulo {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--color-hover);
+            font-weight: 400;
+            max-inline-size: 600px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        .hero-estadisticas {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        .estadistica {
+            text-align: center;
+        }
+
+        .estadistica-numero {
+            font-family: var(--fuente-titulos);
+            font-size: 3.5rem;
+            color: var(--color-acento);
+            line-height: 1;
+        }
+
+        .estadistica-texto {
+            font-size: 0.85rem;
+            color: var(--color-hover);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+
+        /* ============================================
+           SECCIÓN FILTROS
+           ============================================ */
+        .filtros {
+            padding: 2rem 0;
+            background: var(--color-fondo);
+            border-bottom: 1px solid rgba(74, 78, 105, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .filtros-contenedor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filtro-btn {
+            background: transparent;
+            border: 2px solid var(--color-acento);
+            color: var(--color-acento);
+            padding: 0.6rem 1.5rem;
+            border-radius: 0;
+            font-family: var(--fuente-cuerpo);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+
+        .filtro-btn:hover,
+        .filtro-btn.activo {
+            background: var(--color-acento);
+            color: var(--color-fondo);
+        }
+
+        .filtro-btn:focus {
+            outline: 2px solid var(--color-oro);
+            outline-offset: 2px;
+        }
+
+        /* ============================================
+           SECCIÓN CAMPEONES - GRID PRINCIPAL
+           ============================================ */
+        .campeones {
+            padding: 4rem 0 6rem;
+            background: var(--color-fondo);
+        }
+
+        .campeones-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .campeones-titulo {
+            font-family: var(--fuente-titulos);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--color-texto);
+            margin-bottom: 0.5rem;
+        }
+
+        .campeones-subtitulo {
+            color: var(--color-hover);
+            font-size: 1rem;
+        }
+
+        /* ============================================
+           TARJETAS DE CAMPEONES
+           ============================================ */
+        .tarjeta {
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(34, 34, 59, 0.08);
+            transition: var(--transicion);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .tarjeta.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(34, 34, 59, 0.15);
+        }
+
+        /* Contenedor de imagen con overflow hidden obligatorio */
+        .tarjeta-imagen {
+            position: relative;
+            inline-size: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-acento) 0%, var(--color-hover) 100%);
+        }
+
+        .tarjeta-imagen img {
+            inline-size: 100%;
+            block-size: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .tarjeta:hover .tarjeta-imagen img {
+            transform: scale(1.08);
+        }
+
+        /* Badge del año */
+        .tarjeta-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(34, 34, 59, 0.9);
+            color: var(--color-fondo);
+            padding: 0.35rem 0.85rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Badge del juego */
+        .tarjeta-juego {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .juego-csgo {
+            background: var(--color-oro);
+            color: var(--color-texto);
+        }
+
+        .juego-cs2 {
+            background: #FF6B35;
+            color: white;
+        }
+
+        .tarjeta-contenido {
+            padding: 1.25rem 1.5rem 1.5rem;
+        }
+
+        .tarjeta-equipo {
+            font-family: var(--fuente-titulos);
+            font-size: 1.75rem;
+            color: var(--color-texto);
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.02em;
+        }
+
+        .tarjeta-torneo {
+            font-size: 0.9rem;
+            color: var(--color-acento);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .tarjeta-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--color-hover);
+            margin-bottom: 1.25rem;
+        }
+
+        .tarjeta-info svg {
+            inline-size: 14px;
+            block-size: 14px;
+            opacity: 0.7;
+        }
+
+        .tarjeta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            inline-size: 100%;
+            padding: 0.85rem 1.5rem;
+            background: var(--color-acento);
+            color: var(--color-fondo);
+            border: none;
+            border-radius: 6px;
+            font-family: var(--fuente-cuerpo);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+
+        .tarjeta-btn:hover {
+            background: var(--color-hover);
+            color: var(--color-fondo);
+            transform: translateY(-2px);
+        }
+
+        .tarjeta-btn:focus {
+            outline: 2px solid var(--color-oro);
+            outline-offset: 2px;
+        }
+
+        .tarjeta-btn svg {
+            inline-size: 16px;
+            block-size: 16px;
+        }
+
+        /* ============================================
+           SECCIÓN TIMELINE HISTORIA
+           ============================================ */
+        .historia {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, #E8E8E4 0%, var(--color-fondo) 100%);
+        }
+
+        .historia-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .historia-titulo {
+            font-family: var(--fuente-titulos);
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--color-texto);
+            margin-bottom: 1rem;
+        }
+
+        .historia-texto {
+            max-inline-size: 700px;
+            margin: 0 auto;
+            color: var(--color-hover);
+            font-size: 1.05rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-inline-size: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            inline-size: 2px;
+            block-size: 100%;
+            background: linear-gradient(180deg, var(--color-acento) 0%, var(--color-oro) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-contenido {
+            inline-size: 45%;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(34, 34, 59, 0.08);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-contenido {
+            text-align: right;
+        }
+
+        .timeline-punto {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            inline-size: 16px;
+            block-size: 16px;
+            background: var(--color-acento);
+            border-radius: 50%;
+            border: 3px solid var(--color-fondo);
+        }
+
+        .timeline-year {
+            font-family: var(--fuente-titulos);
+            font-size: 1.5rem;
+            color: var(--color-acento);
+        }
+
+        .timeline-texto {
+            font-size: 0.9rem;
+            color: var(--color-hover);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--color-texto);
+            color: var(--color-fondo);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: var(--fuente-titulos);
+            font-size: 2rem;
+            color: var(--color-fondo);
+        }
+
+        .footer-texto {
+            color: rgba(245, 245, 241, 0.7);
+            font-size: 0.9rem;
+            max-inline-size: 500px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-link {
+            color: rgba(245, 245, 241, 0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transicion);
+        }
+
+        .footer-link:hover {
+            color: var(--color-oro);
+        }
+
+        .footer-copy {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(245, 245, 241, 0.1);
+            font-size: 0.8rem;
+            color: rgba(245, 245, 241, 0.5);
+        }
+
+        /* ============================================
+           UTILIDADES Y RESPONSIVIDAD
+           ============================================ */
+        .oculto {
+            display: none !important;
+        }
+
+        /* Tablets */
+        @media (max-width: 991.98px) {
+            .hero-estadisticas {
+                gap: 2rem;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                flex-direction: row;
+                padding-left: 50px;
+            }
+            
+            .timeline-contenido,
+            .timeline-item:nth-child(odd) .timeline-contenido {
+                inline-size: 100%;
+                text-align: left;
+            }
+            
+            .timeline-punto {
+                left: 20px;
+            }
+        }
+
+        /* Móvil */
+        @media (max-width: 575.98px) {
+            .hero {
+                padding: 5rem 1rem 3rem;
+            }
+            
+            .hero-estadisticas {
+                gap: 1.5rem;
+            }
+            
+            .estadistica-numero {
+                font-size: 2.5rem;
+            }
+            
+            .filtros-contenedor {
+                gap: 0.5rem;
+            }
+            
+            .filtro-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+            
+            .tarjeta-contenido {
+                padding: 1rem 1.25rem 1.25rem;
+            }
+        }
+
+        /* Preferencia de movimiento reducido */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Scroll suave para navegación */
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         SECCIÓN HERO
+         ============================================ -->
+    <header class="hero" id="inicio">
+        <div class="hero-contenido">
+            <span class="hero-etiqueta">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                Counter-Strike Majors
+            </span>
+            
+            <h1 class="hero-titulo">
+                Leyendas del
+                <span>Counter-Strike</span>
+            </h1>
+            
+            <p class="hero-subtitulo">
+                Desde 2013 hasta la actualidad, estos equipos escribieron su nombre en la historia de los esports 
+                más competitivos del mundo. Conoce a todos los campeones de Majors.
+            </p>
+            
+            <div class="hero-estadisticas">
+                <div class="estadistica">
+                    <div class="estadistica-numero">22</div>
+                    <div class="estadistica-texto">Majors Disputados</div>
+                </div>
+                <div class="estadistica">
+                    <div class="estadistica-numero">12</div>
+                    <div class="estadistica-texto">Equipos Campeones</div>
+                </div>
+                <div class="estadistica">
+                    <div class="estadistica-numero">12</div>
+                    <div class="estadistica-texto">Anos de Historia</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         SECCIÓN FILTROS
+         ============================================ -->
+    <nav class="filtros" role="navigation" aria-label="Filtros de campeones">
+        <div class="container">
+            <div class="filtros-contenedor">
+                <button class="filtro-btn activo" data-filtro="todos" aria-pressed="true">
+                    Todos los Majors
+                </button>
+                <button class="filtro-btn" data-filtro="csgo" aria-pressed="false">
+                    CS:GO
+                </button>
+                <button class="filtro-btn" data-filtro="cs2" aria-pressed="false">
+                    CS2
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         SECCIÓN CAMPEONES - GRID PRINCIPAL
+         ============================================ -->
+    <main class="campeones" id="campeones">
+        <div class="container">
+            <div class="campeones-header">
+                <h2 class="campeones-titulo">Galeria de Campeones</h2>
+                <p class="campeones-subtitulo">Todos los equipos que levantaron el trofeo mas prestigioso del Counter-Strike</p>
+            </div>
+            
+            <div class="row" id="grid-campeones">
+                
+                <!-- TARJETA 1: fnatic - DreamHack Winter 2013 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/VOsISFf-j8FfYvD2fB6LKx.svg?ixlib=java-2.1.0&w=400&s=3a24baa4a44b6dc0895c4eb38e8d1946" 
+                                 alt="fnatic celebrando su victoria en DreamHack Winter 2013" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2013</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">fnatic</h3>
+                            <p class="tarjeta-torneo">DreamHack Winter 2013</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Jönköping, Suecia</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=NlF3Qe0eDnQ" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de fnatic vs Ninjas in Pyjamas">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 2: Virtus.pro - EMS One Katowice 2014 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/CqcfpFPV4PGwPWeJwHW9tP.svg?ixlib=java-2.1.0&w=400&s=e9d6378d5c4f1b7a0e3e3c8b9b5f5b5f" 
+                                 alt="Virtus.pro celebrando en Katowice 2014" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2014</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Virtus.pro</h3>
+                            <p class="tarjeta-torneo">EMS One Katowice 2014</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Katowice, Polonia</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=IzOeF7KZqKU" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Virtus.pro vs Ninjas in Pyjamas">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 3: fnatic - ESL One Cologne 2014 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/VOsISFf-j8FfYvD2fB6LKx.svg?ixlib=java-2.1.0&w=400&s=3a24baa4a44b6dc0895c4eb38e8d1946" 
+                                 alt="fnatic segundo major en Cologne 2014" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2014</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">fnatic</h3>
+                            <p class="tarjeta-torneo">ESL One Cologne 2014</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Colonia, Alemania</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=k9g3tAB5lP8" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de fnatic vs Ninjas in Pyjamas">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 4: LDLC - DreamHack Winter 2014 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/njVyeZ-kPnq6VJH93S_dO-.svg?ixlib=java-2.1.0&w=400&s=dd6a3b8b3a2a4c4e5f6a7b8c9d0e1f2a" 
+                                 alt="LDLC campeones DreamHack Winter 2014" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2014</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">LDLC</h3>
+                            <p class="tarjeta-torneo">DreamHack Winter 2014</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Jönköping, Suecia</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=HRnMXB0JlDk" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de LDLC vs Ninjas in Pyjamas">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 5: fnatic - ESL One Katowice 2015 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/VOsISFf-j8FfYvD2fB6LKx.svg?ixlib=java-2.1.0&w=400&s=3a24baa4a44b6dc0895c4eb38e8d1946" 
+                                 alt="fnatic tercer major Katowice 2015" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2015</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">fnatic</h3>
+                            <p class="tarjeta-torneo">ESL One Katowice 2015</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Katowice, Polonia</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=8b9Y7-gZHYk" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de fnatic vs Ninjas in Pyjamas">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 6: fnatic - ESL One Cologne 2015 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/VOsISFf-j8FfYvD2fB6LKx.svg?ixlib=java-2.1.0&w=400&s=3a24baa4a44b6dc0895c4eb38e8d1946" 
+                                 alt="fnatic cuarto major Cologne 2015" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2015</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">fnatic</h3>
+                            <p class="tarjeta-torneo">ESL One Cologne 2015</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Colonia, Alemania</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=KdLW0rDVxbs" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de fnatic vs Team EnVyUs">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 7: Team EnVyUs - DreamHack Open Cluj-Napoca 2015 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/Wr4t5tFZ8cWNSzWqiSwhQx.svg?ixlib=java-2.1.0&w=400&s=4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e" 
+                                 alt="Team EnVyUs campeones Cluj-Napoca 2015" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2015</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Team EnVyUs</h3>
+                            <p class="tarjeta-torneo">DreamHack Open Cluj-Napoca 2015</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Cluj-Napoca, Rumania</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=4XZQ3z5jNGg" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de EnVyUs vs Natus Vincere">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 8: Luminosity Gaming - MLG Columbus 2016 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/qKWpsISN2K4FOi0WgDjV7b.svg?ixlib=java-2.1.0&w=400&s=5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f" 
+                                 alt="Luminosity Gaming campeones MLG Columbus 2016" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2016</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Luminosity Gaming</h3>
+                            <p class="tarjeta-torneo">MLG Major Championship Columbus 2016</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Columbus, Estados Unidos</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=tDn6Z7qKwLQ" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Luminosity vs Natus Vincere">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 9: SK Gaming - ESL One Cologne 2016 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/SxSUky5xDff0xm-bqtqFTa.svg?ixlib=java-2.1.0&w=400&s=6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a" 
+                                 alt="SK Gaming campeones Cologne 2016" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2016</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">SK Gaming</h3>
+                            <p class="tarjeta-torneo">ESL One Cologne 2016</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Colonia, Alemania</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=LqZ8hdJHxOc" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de SK Gaming vs Team Liquid">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 10: Astralis - ELEAGUE Major Atlanta 2017 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/s5PaT3mFffYx3fIiSvIxmK.svg?ixlib=java-2.1.0&w=400&s=7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b" 
+                                 alt="Astralis primer major Atlanta 2017" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2017</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Astralis</h3>
+                            <p class="tarjeta-torneo">ELEAGUE Major Atlanta 2017</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Atlanta, Estados Unidos</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=gQ5dU3d1FjM" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Astralis vs Virtus.pro">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 11: Gambit - PGL Major Krakow 2017 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/VhQpMhqFzJXqKdZKMhv9JZ.svg?ixlib=java-2.1.0&w=400&s=8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c" 
+                                 alt="Gambit campeones Krakow 2017" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2017</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Gambit Esports</h3>
+                            <p class="tarjeta-torneo">PGL Major Krakow 2017</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Krakow, Polonia</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=VjPmX_KhxzI" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Gambit vs Immortals">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 12: Cloud9 - ELEAGUE Major Boston 2018 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/4R7F5My5E8cTqfn8t7qK8b.svg?ixlib=java-2.1.0&w=400&s=9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d" 
+                                 alt="Cloud9 campeones Boston 2018" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2018</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Cloud9</h3>
+                            <p class="tarjeta-torneo">ELEAGUE Major Boston 2018</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Boston, Estados Unidos</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=SF2RKkzLxhg" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Cloud9 vs FaZe Clan">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 13: Astralis - FACEIT Major London 2018 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/s5PaT3mFffYx3fIiSvIxmK.svg?ixlib=java-2.1.0&w=400&s=7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b" 
+                                 alt="Astralis segundo major London 2018" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2018</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Astralis</h3>
+                            <p class="tarjeta-torneo">FACEIT Major London 2018</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Londres, Reino Unido</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=zqQU3cEaHmE" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Astralis vs Natus Vincere">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 14: Astralis - IEM Katowice 2019 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/s5PaT3mFffYx3fIiSvIxmK.svg?ixlib=java-2.1.0&w=400&s=7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b" 
+                                 alt="Astralis tercer major Katowice 2019" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2019</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Astralis</h3>
+                            <p class="tarjeta-torneo">IEM Katowice Major 2019</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Katowice, Polonia</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=Jz5mGZE2YFw" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Astralis vs ENCE">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 15: Astralis - StarLadder Major Berlin 2019 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/s5PaT3mFffYx3fIiSvIxmK.svg?ixlib=java-2.1.0&w=400&s=7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b" 
+                                 alt="Astralis cuarto major Berlin 2019" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2019</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Astralis</h3>
+                            <p class="tarjeta-torneo">StarLadder Major Berlin 2019</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Berlin, Alemania</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=9KdVwHxfSVA" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Astralis vs AVANGAR">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 16: Natus Vincere - PGL Major Stockholm 2021 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/c4oSNpvOqXH6Ls1R6dxYMp.svg?ixlib=java-2.1.0&w=400&s=0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e" 
+                                 alt="Natus Vincere campeones Stockholm 2021" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2021</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Natus Vincere</h3>
+                            <p class="tarjeta-torneo">PGL Major Stockholm 2021</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Estocolmo, Suecia</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=BwExjO5FPuo" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Natus Vincere vs G2 Esports">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 17: FaZe Clan - PGL Major Antwerp 2022 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/fzK8PwKskS9yTyR4c7Y7F9.svg?ixlib=java-2.1.0&w=400&s=1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f" 
+                                 alt="FaZe Clan campeones Antwerp 2022" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2022</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">FaZe Clan</h3>
+                            <p class="tarjeta-torneo">PGL Major Antwerp 2022</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Amberes, Belgica</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=7zVHz7hPqWg" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de FaZe Clan vs Natus Vincere">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 18: Outsiders - IEM Rio Major 2022 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/kj5pVm2tT7oLa6JhN9N2X7.svg?ixlib=java-2.1.0&w=400&s=2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a" 
+                                 alt="Outsiders campeones Rio 2022" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2022</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Outsiders</h3>
+                            <p class="tarjeta-torneo">IEM Rio Major 2022</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Rio de Janeiro, Brasil</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=CnXxkHPIGeE" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Outsiders vs Heroic">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 19: Team Vitality - BLAST Paris Major 2023 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="csgo">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/q6cHzBxSfTq7N6s8mG9VSn.svg?ixlib=java-2.1.0&w=400&s=3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b" 
+                                 alt="Team Vitality campeones Paris 2023" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2023</span>
+                            <span class="tarjeta-juego juego-csgo">CS:GO</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Team Vitality</h3>
+                            <p class="tarjeta-torneo">BLAST Paris Major 2023</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Paris, Francia</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Vitality vs Liquid">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 20: Natus Vincere - PGL Major Copenhagen 2024 (CS2) -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="cs2">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/c4oSNpvOqXH6Ls1R6dxYMp.svg?ixlib=java-2.1.0&w=400&s=0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e" 
+                                 alt="Natus Vincere primeros campeones de CS2 Copenhagen 2024" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2024</span>
+                            <span class="tarjeta-juego juego-cs2">CS2</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Natus Vincere</h3>
+                            <p class="tarjeta-torneo">PGL Major Copenhagen 2024</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Copenhague, Dinamarca</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=jhKKH3n9KXg" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Natus Vincere vs FaZe Clan">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 21: Team Spirit - Perfect World Shanghai Major 2024 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="cs2">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/dJ5qZ7yRqNP8sT7p2fLnY8.svg?ixlib=java-2.1.0&w=400&s=4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c" 
+                                 alt="Team Spirit campeones Shanghai 2024" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2024</span>
+                            <span class="tarjeta-juego juego-cs2">CS2</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Team Spirit</h3>
+                            <p class="tarjeta-torneo">Perfect World Shanghai Major 2024</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Shanghai, China</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=kL7M5qVnXxA" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Team Spirit vs FaZe Clan">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TARJETA 22: Team Vitality - BLAST Austin Major 2025 -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="tarjeta" data-juego="cs2">
+                        <div class="tarjeta-imagen">
+                            <img src="https://img-cdn.hltv.org/teamlogo/q6cHzBxSfTq7N6s8mG9VSn.svg?ixlib=java-2.1.0&w=400&s=3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b" 
+                                 alt="Team Vitality campeones Austin 2025" 
+                                 loading="lazy">
+                            <span class="tarjeta-badge">2025</span>
+                            <span class="tarjeta-juego juego-cs2">CS2</span>
+                        </div>
+                        <div class="tarjeta-contenido">
+                            <h3 class="tarjeta-equipo">Team Vitality</h3>
+                            <p class="tarjeta-torneo">BLAST.tv Austin Major 2025</p>
+                            <div class="tarjeta-info">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Austin, Estados Unidos</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=VitalityAustin2025" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="tarjeta-btn"
+                               aria-label="Ver final de Vitality vs The MongolZ">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                                Ver Gran Final
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================
+         SECCIÓN HISTORIA - TIMELINE
+         ============================================ -->
+    <section class="historia" id="historia">
+        <div class="container">
+            <div class="historia-header">
+                <h2 class="historia-titulo">La Evolucion de los Majors</h2>
+                <p class="historia-texto">
+                    Desde el primer Major en DreamHack Winter 2013 hasta la era de Counter-Strike 2, 
+                    los Majors han sido el escenario de las mayores leyendas del esports.
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-contenido">
+                        <div class="timeline-year">2013</div>
+                        <p class="timeline-texto">Primer Major oficial de CS:GO en DreamHack Winter. fnatic se corona como el primer campeon.</p>
+                    </div>
+                    <div class="timeline-punto"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-contenido">
+                        <div class="timeline-year">2015</div>
+                        <p class="timeline-texto">fnatic establece el record de 3 Majors ganados, convirtiendose en la primera dinastia.</p>
+                    </div>
+                    <div class="timeline-punto"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-contenido">
+                        <div class="timeline-year">2018-2019</div>
+                        <p class="timeline-texto">Astralis domina con 4 titulos, el equipo mas exitoso de la historia de los Majors.</p>
+                    </div>
+                    <div class="timeline-punto"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-contenido">
+                        <div class="timeline-year">2024</div>
+                        <p class="timeline-texto">Natus Vincere gana el primer Major de CS2 en Copenhague, iniciando una nueva era.</p>
+                    </div>
+                    <div class="timeline-punto"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-contenido">
+                <div class="footer-logo">CS Majors</div>
+                <p class="footer-texto">
+                    Un tributo a los equipos y jugadores que escribieron su nombre en la historia del Counter-Strike. 
+                    Todos los derechos de las marcas y torneos pertenecen a sus respectivos propietarios.
+                </p>
+                <nav class="footer-links" aria-label="Enlaces del pie de pagina">
+                    <a href="#inicio" class="footer-link">Inicio</a>
+                    <a href="#campeones" class="footer-link">Campeones</a>
+                    <a href="#historia" class="footer-link">Historia</a>
+                    <a href="https://www.hltv.org" target="_blank" rel="noopener noreferrer" class="footer-link">HLTV</a>
+                    <a href="https://liquipedia.net/counterstrike" target="_blank" rel="noopener noreferrer" class="footer-link">Liquipedia</a>
+                </nav>
+                <p class="footer-copy">
+                    Pagina creada con fines informativos. No afiliada con Valve Corporation.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         SCRIPTS JAVASCRIPT
+         ============================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // ============================================
+        // INICIALIZACIÓN DE VARIABLES GLOBALES
+        // ============================================
+        const tarjetas = document.querySelectorAll('.tarjeta');
+        const botonesFiltro = document.querySelectorAll('.filtro-btn');
+        
+        // ============================================
+        // INTERSECTION OBSERVER - ANIMACIONES DE ENTRADA
+        // ============================================
+        const observerOpciones = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observerCallback = (entradas, observer) => {
+            entradas.forEach((entrada, index) => {
+                if (entrada.isIntersecting) {
+                    // Aplicar delay escalonado para efecto cascada
+                    setTimeout(() => {
+                        entrada.target.classList.add('visible');
+                    }, index * 80);
+                    observer.unobserve(entrada.target);
+                }
+            });
+        };
+        
+        const observer = new IntersectionObserver(observerCallback, observerOpciones);
+        
+        // Observar todas las tarjetas
+        tarjetas.forEach(tarjeta => {
+            observer.observe(tarjeta);
+        });
+        
+        // ============================================
+        // SISTEMA DE FILTROS
+        // ============================================
+        function filtrarTarjetas(filtro) {
+            tarjetas.forEach((tarjeta, index) => {
+                const juego = tarjeta.getAttribute('data-juego');
+                const debeMostrar = filtro === 'todos' || juego === filtro;
+                
+                // Resetear animación
+                tarjeta.classList.remove('visible');
+                
+                setTimeout(() => {
+                    if (debeMostrar) {
+                        tarjeta.parentElement.style.display = 'block';
+                        // Re-trigger animación
+                        setTimeout(() => {
+                            tarjeta.classList.add('visible');
+                        }, index * 50);
+                    } else {
+                        tarjeta.parentElement.style.display = 'none';
+                    }
+                }, 100);
+            });
+        }
+        
+        // Event listeners para los botones de filtro
+        botonesFiltro.forEach(boton => {
+            boton.addEventListener('click', () => {
+                // Actualizar estado activo
+                botonesFiltro.forEach(btn => {
+                    btn.classList.remove('activo');
+                    btn.setAttribute('aria-pressed', 'false');
+                });
+                boton.classList.add('activo');
+                boton.setAttribute('aria-pressed', 'true');
+                
+                // Aplicar filtro
+                const filtro = boton.getAttribute('data-filtro');
+                filtrarTarjetas(filtro);
+            });
+        });
+        
+        // ============================================
+        // SCROLL SUAVE PARA ENLACES INTERNOS
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(enlace => {
+            enlace.addEventListener('click', (evento) => {
+                evento.preventDefault();
+                const objetivo = document.querySelector(enlace.getAttribute('href'));
+                if (objetivo) {
+                    objetivo.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // ============================================
+        // EFECTO PARALLAX SUTIL EN HERO
+        // ============================================
+        const hero = document.querySelector('.hero');
+        
+        function aplicarParallax() {
+            const scrollY = window.scrollY;
+            const limiteHero = hero.offsetHeight;
+            
+            if (scrollY < limiteHero) {
+                const opacidad = 1 - (scrollY / limiteHero) * 0.5;
+                const translateY = scrollY * 0.3;
+                
+                hero.querySelector('.hero-contenido').style.opacity = Math.max(opacidad, 0.3);
+                hero.querySelector('.hero-contenido').style.transform = `translateY(${translateY}px)`;
+            }
+        }
+        
+        // Verificar preferencia de movimiento reducido antes de aplicar
+        const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (!prefiereMovimientoReducido) {
+            window.addEventListener('scroll', aplicarParallax, { passive: true });
+        }
+        
+        // ============================================
+        // MANEJO DE ERRORES DE IMÁGENES
+        // ============================================
+        document.querySelectorAll('.tarjeta-imagen img').forEach(img => {
+            img.addEventListener('error', function() {
+                // Fallback a imagen placeholder si la original falla
+                this.src = 'data:image/svg+xml,' + encodeURIComponent(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250">
+                        <rect fill="#4A4E69" width="400" height="250"/>
+                        <text x="200" y="125" fill="#F5F5F1" font-family="sans-serif" font-size="24" text-anchor="middle" dominant-baseline="middle">
+                            Equipo Campeon
+                        </text>
+                    </svg>
+                `);
+            });
+        });
+        
+        // ============================================
+        // ACCESIBILIDAD: Focus visible para navegación por teclado
+        // ============================================
+        document.addEventListener('keydown', (evento) => {
+            if (evento.key === 'Tab') {
+                document.body.classList.add('navegacion-teclado');
+            }
+        });
+        
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('navegacion-teclado');
+        });
+        
+        // ============================================
+        // CONSOLE LOG INFORMATIVO
+        // ============================================
+        console.log('%cCS Majors - Landing Page', 'font-size: 24px; font-weight: bold; color: #4A4E69;');
+        console.log('%cDesarrollado con HTML5, CSS3 y Bootstrap 5', 'font-size: 12px; color: #22223B;');
+        console.log('%cTodos los campeones de Majors desde 2013 hasta 2025', 'font-size: 12px; color: #22223B;');
+    </script>
+
+</body>
+</html>
